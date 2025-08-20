@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Quicksand", sans-serif;
+  
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+/* Utility classes */
+.primary-text {
+  color: #ce1515;
+}
+
+/* Header start */
+header {
+   height: 100vh;
+   background: url('./img/home_bg.jpeg') center center/cover no-repeat;
+   position: relative;
+
+}
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: aqua;
+}
+#navbar img {
+    width: 80px;
+    margin-left: 100px;
+}
+#navbar ul {
+    display: flex;
+    margin-right: 100px;
+}
+#navbar ul li {
+    padding: 15px 20px;
+    color: rgb(21, 21, 21);
+    font-weight: 600;
+
+}
+#navbar ul li a:hover {
+    border-bottom: 2px solid rgb(182, 229, 13);
+}
+header .contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 75%;
+}
+
+header .contact h1 {
+    font-size: 40px;
+}
+header .contact p {
+    margin: 20px 0 40px;
+}
+
+
+/*Header End*/
+
+
+/* Footer Start */
+#footer {
+  background-color: aqua;
+  text-align: center;
+  color: #f70606;
+  padding: 15px 0;
+  font-size: 14px;
+}
+/* Footer End */
+
+
