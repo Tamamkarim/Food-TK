@@ -3,9 +3,15 @@
   padding: 0;
   box-sizing: border-box;
 }
+html, body {
+  height: 100%;
+}
+
 body {
   font-family: "Quicksand", sans-serif;
-  
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 ul {
@@ -15,23 +21,20 @@ ul {
 a {
   text-decoration: none;
 }
-/* Utility classes */
-.primary-text {
-  color: #ce1515;
-}
+
 
 /* Header start */
-header {
-   height: 100vh;
-   background: url('./img/home_bg.jpeg') center center/cover no-repeat;
-   position: relative;
 
-}
 #navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: aqua;
+    background-color: rgb(56, 71, 71);
+    width: 900px;          
+    margin: 30px auto 0 auto; 
+    border-radius: 16px;    
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07); 
+    padding: 0 30px;        
 }
 #navbar img {
     width: 80px;
@@ -57,6 +60,30 @@ header .contact {
     align-items: center;
     height: 75%;
 }
+#about-heading {
+  font-size: 1.6rem;
+  font-weight: bold;
+   margin-bottom: 0.5em;
+   color: #23282d;
+}
+#about-desc {
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+#pizza-img {
+  position: absolute;
+  top: -60px;
+  right: 60px;
+  width: 170px;
+  z-index: 2;
+  transform: rotate(15deg);
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.18));
+  transition: transform 0.3s;
+}
+#pizza-img:hover {
+  transform: scale(1.08) rotate(8deg);
+}
 
 header .contact h1 {
     font-size: 40px;
@@ -71,12 +98,57 @@ header .contact p {
 
 /* Footer Start */
 #footer {
-  background-color: aqua;
+  background-color:  rgb(56, 71, 71);
   text-align: center;
-  color: #f70606;
+  color: #977e7e;
   padding: 15px 0;
   font-size: 14px;
+  margin-top: auto;
 }
 /* Footer End */
+
+.about-section {
+  margin: 40px auto 80px auto; 
+  background: #f5f5f5;
+  border-radius: 8px;
+  padding: 40px 30px 30px 30px;
+  max-width: 900px;      
+  position: relative; 
+  overflow: visible;
+}
+
+.about-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.13;
+  background-image: url('https://img.icons8.com/ios/100/000000/pizza.png'), url('https://img.icons8.com/ios/100/000000/vegetarian-food-symbol.png');
+  background-repeat: repeat;
+  background-size: 90px;
+  z-index: 0;
+}
+
+.about-img {
+  width: 220px;
+  height: 150px;
+  border-radius: 14px;
+  object-fit: cover;
+  margin-right: 35px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.start-order {
+  max-width: 900px;
+  margin: 30px auto 0 auto;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #23282d;
+}
 
 
