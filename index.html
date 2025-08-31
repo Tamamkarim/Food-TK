@@ -6,23 +6,57 @@
     <title>TK</title>
     <!-- styles link -->
     <link rel="stylesheet" href="./styles.css">
+
 </head>
 <body>
   <!-- Header start -->
   <header>
     <div id="navbar">
       <img src="./img/logo.png" alt="Food Lover Logo">
-    <nav>
+      <nav>
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#menu">Menu</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="# contact">Contact</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
-    </nav>
+      </nav>
     </div>
-    <div class="start-order">Aloita tilaus</div>
+    <section class="main-message-section">
+      <p class="main-message-title">Tänne lisää sisältöä seuraavaksi</p>
+      <button id="showdialog">Show the dialog</button>
+    </section>
+  </header>
+  <!-- Header end -->
+  <!-- Main Section Start -->
+  <main>
+
+
+      <!--<dialog closedby=a"any"></-->
+      <dialog id="register-dialog">
+        
+        <form id="register-form" action="">
+          
+          <div class="dialog-title-main">Rekisteröidy tiedoillasi</div>
+          <img src="img/your-illustration.png" class="dialog-illustration" alt="Register Illustration">
+          <fieldset class="myForm">
+            <label for="yourName">Sukunimi, minin 4 kirjainta:</label>
+            <input type="text" id="yourName" name="yourName" pattern="[A-Za-z]{4,30}" required placeholder="Sukunimi" />
+            <label for="yourEmail">Email osoite (esim. me@example.com):</label>
+            <input type="email" id="yourEmail" name="yourEmail" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required placeholder="me@example.com" />
+            <label for="yourPassword">Salasana (minin 6 merkkiä):</label>
+            <input type="password" id="yourPassword" name="yourPassword" pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}" required placeholder="Salasana" />
+            <div class="dialog-buttons">
+              <input type="submit" value="Submit" />
+              <button id="close-dialog" type="button">Close</button>
+            </div>
+          </fieldset>
+        </form>
+        
+      </dialog>
+    </section>
+
     <section class="about-section">
       <div class="about-bg"></div>
       <img src="img/pizza.png" alt="pizza" id="pizza-img">
@@ -37,12 +71,11 @@
         </div>
       </div>
     </section>
-  </header>
-    <!-- Header end -->
-    
-       <footer id="footer">
-        <p>TK &copy; 2025 <b> <a href="#"
-                    target="_blank"> Tamam K</a> </b></p>
-    </footer>
+  </main>
+
+  <footer id="footer">
+    <p>TK &copy; 2025 <b> <a href="#" target="blank"> Tamam K</a> </b></p>
+  </footer>
+  <script src="javascript.js"></script>
 </body>
 </html>
