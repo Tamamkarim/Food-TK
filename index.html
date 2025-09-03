@@ -7,12 +7,13 @@
     <!-- styles link -->
     <link rel="stylesheet" href="./styles.css">
 
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 <body>
   <!-- Header start -->
   <header>
     <div id="navbar">
-      <img src="./img/logo.png" alt="Food Lover Logo">
+      <img src="./img/logo.png" alt="Food Lover Lo go">
       <nav>
         <ul>
           <li><a href="#home">Home</a></li>
@@ -26,6 +27,9 @@
     <section class="main-message-section">
       <p class="main-message-title">Tänne lisää sisältöä seuraavaksi</p>
       <button id="showdialog">Show the dialog</button>
+      <div class="main-img-wrapper">
+        <img src="img/9-6.jpg" alt="kuva" style="width:180px;max-width:90%;margin:18px auto 0 auto;display:block;border-radius:14px;box-shadow:0 2px 12px rgba(56,71,71,0.08);background:#fff;">
+      </div>
     </section>
   </header>
   <!-- Header end -->
@@ -33,11 +37,9 @@
   <main>
 
 
-      <!--<dialog closedby=a"any"></-->
+  <!-- Dialog for registration -->
       <dialog id="register-dialog">
-        
         <form id="register-form" action="">
-          
           <div class="dialog-title-main">Rekisteröidy tiedoillasi</div>
           <img src="img/your-illustration.png" class="dialog-illustration" alt="Register Illustration">
           <fieldset class="myForm">
@@ -53,9 +55,8 @@
             </div>
           </fieldset>
         </form>
-        
       </dialog>
-    </section>
+  <!-- End dialog section -->
 
     <section class="about-section">
       <div class="about-bg"></div>
@@ -64,7 +65,7 @@
         <img src="img/your_image.jpeg" alt="about" class="about-img">
         <div class="about-text">
           <div class="about-title">LISÄÄ MEISTÄ</div>
-          <h2 id="about-heading">valikoimamme</h2>
+          <h2 id="about-heading">Valikoimamme</h2>
           <p id="about-desc">
             Suosituin pitsamme on klassikko kinkulla ja herkkusienillä. Tarjoamme myös tulista Diavolaa, raikasta Veggie-pitsaa sekä mahdollisuuden koota oman pitsan tuoreista täytteistä. Meiltä voi tilata, noutaa tai nauttia pitsan paikan päällä.
           </p>
@@ -74,7 +75,7 @@
   </main>
 
   <footer id="footer">
-    <p>TK &copy; 2025 <b> <a href="#" target="blank"> Tamam K</a> </b></p>
+    <p>TK &copy; 2025 <b><a href="#" target="_blank">Tamam K</a></b></p>
   </footer>
   <script src="javascript.js"></script>
 </body>

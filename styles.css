@@ -1,3 +1,86 @@
+.smiley {
+  height: 200px;
+  width: 100px;
+  object-fit: contain;
+  background-color: yellow;
+}
+
+
+body {
+  background-color: #f9f6f2;
+  font-family: "Quicksand", "Cairo", Arial, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    background-color: #e3f7ef;
+  }
+  #navbar {
+    flex-direction: column;
+    padding: 12px 8px;
+    max-width: 98vw;
+    width: 98vw;
+    margin: 12px auto 0 auto;
+    border-radius: 14px;
+  }
+  #navbar img {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+  #navbar ul {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    align-items: center;
+    margin: 0;
+  }
+  #navbar ul li {
+    padding: 8px 0;
+    font-size: 1.1rem;
+    width: 100%;
+    text-align: center;
+  }
+  .main-message-section {
+    max-width: 98vw;
+    padding: 18px 6px;
+    margin: 18px auto 0 auto;
+    border-radius: 14px;
+  }
+  .about-section {
+    max-width: 98vw;
+    padding: 18px 6px;
+    margin: 18px auto 40px auto;
+    border-radius: 14px;
+  }
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+  }
+  .about-img {
+    margin: 0 0 12px 0;
+    width: 90vw;
+    max-width: 250px;
+    height: auto;
+    display: block;
+  }
+  #pizza-img {
+    position: static;
+    width: 120px;
+    margin: 0 auto 12px auto;
+    display: block;
+    top: unset;
+    right: unset;
+    transform: none;
+  }
+}
+
 .dialog-buttons {
   display: flex;
   flex-direction: row;
@@ -30,6 +113,7 @@
   border: 2px solid #b6e50d;
   font-weight: bold;
   letter-spacing: 0.5px;
+
   box-shadow: 0 1px 6px rgba(201,122,44,0.08);
   border-radius: 8px;
   transition: background 0.2s, color 0.2s, border 0.2s;
@@ -42,24 +126,24 @@
 .main-message-section {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   max-width: 600px;
   margin: 38px auto 0 auto;
   padding: 32px 36px 28px 36px;
   border-radius: 25px;
- 
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(201,122,44,0.08);
 }
 .main-message-section p {
   font-size: 1.25rem;
   color: #c97a2c;
   font-weight: 600;
   margin-bottom: 18px;
-  text-align: left;
+  text-align: center;
   width: 100%;
 }
 .main-message-section button, .main-message-section input[type="button"] {
-  align-self: flex-start;
   background: linear-gradient(90deg, #c97a2c 60%, #e6c9a0 100%);
   color: #fff;
   border: none;
@@ -70,10 +154,19 @@
   cursor: pointer;
   box-shadow: 0 1px 6px rgba(201,122,44,0.10);
   transition: background 0.2s, color 0.2s;
+  margin: 0 auto 10px auto;
+  display: block;
 }
 .main-message-section button:hover, .main-message-section input[type="button"]:hover {
   background: linear-gradient(90deg, #e6c9a0 60%, #c97a2c 100%);
   color: #c97a2c;
+}
+.main-img-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
 }
 
 .dialog-title-main {
@@ -212,7 +305,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(90deg, #fff 0%, #f7e7d3 100%);
+  background: linear-gradient(90deg, #fff 0%, #e7b373 100%), url('./img/logo.png') center/contain no-repeat;
   max-width: 900px;
   width: 95%;
   margin: 38px auto 0 auto;
@@ -340,14 +433,26 @@ header .contact p {
   z-index: 1;
 }
 
-.start-order {
-  max-width: 900px;
-  margin: 36px auto 0 auto;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #c97a2c;
-  text-align: left;
-  letter-spacing: 0.5px;
-  text-shadow: 0 2px 8px rgba(201,122,44,0.08);
+@media (max-width: 600px) {
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 18px;
+  }
+  .about-img {
+    margin: 0 0 12px 0;
+    width: 90%;
+    max-width: 250px;
+    height: auto;
+    display: block;
+  }
+  .about-section {
+    padding: 24px 8px 18px 8px;
+  }
+  .about-content p, .about-content h2, .about-content h3 {
+    text-align: center;
+  }
 }
+
 
