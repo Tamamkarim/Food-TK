@@ -32,12 +32,11 @@
       </div>
     </section>
   </header>
-  <!-- Header end -->
-  <!-- Main Section Start -->
+ 
   <main>
 
 
-  <!-- Dialog for registration -->
+
       <dialog id="register-dialog">
         <form id="register-form" action="">
           <div class="dialog-title-main">Rekisteröidy tiedoillasi</div>
@@ -45,10 +44,10 @@
           <fieldset class="myForm">
             <label for="yourName">Sukunimi, minin 4 kirjainta:</label>
             <input type="text" id="yourName" name="yourName" pattern="[A-Za-z]{4,30}" required placeholder="Sukunimi" />
-            <label for="yourEmail">Email osoite (esim. me@example.com):</label>
-            <input type="email" id="yourEmail" name="yourEmail" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required placeholder="me@example.com" />
-            <label for="yourPassword">Salasana (minin 6 merkkiä):</label>
-            <input type="password" id="yourPassword" name="yourPassword" pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}" required placeholder="Salasana" />
+            <label for="yourEmail">Email osoite (esim. Tamam@example.com):</label>
+            <input type="email" id="yourEmail" name="yourEmail" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required placeholder="Tamam@example.com" />
+            <label for="yourPassword">Salasana (minin 8 merkkiä):</label>
+            <input type="password" id="yourPassword" name="yourPassword" pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}" required placeholder="Salasana" />
             <div class="dialog-buttons">
               <input type="submit" value="Submit" />
               <button id="close-dialog" type="button">Close</button>
@@ -56,7 +55,7 @@
           </fieldset>
         </form>
       </dialog>
-  <!-- End dialog section -->
+
 
     <section class="about-section">
       <div class="about-bg"></div>
@@ -64,11 +63,192 @@
       <div class="about-content">
         <img src="img/your_image.jpeg" alt="about" class="about-img">
         <div class="about-text">
-          <div class="about-title">LISÄÄ MEISTÄ</div>
+          <div class="about-title"> MEISTÄ</div>
           <h2 id="about-heading">Valikoimamme</h2>
           <p id="about-desc">
-            Suosituin pitsamme on klassikko kinkulla ja herkkusienillä. Tarjoamme myös tulista Diavolaa, raikasta Veggie-pitsaa sekä mahdollisuuden koota oman pitsan tuoreista täytteistä. Meiltä voi tilata, noutaa tai nauttia pitsan paikan päällä.
+            Tarjoamme laajan valikoiman herkullisia ruokia, jotka on valmistettu tuoreista ja laadukkaista raaka-aineista. 
+            Meillä on jotain jokaiselle, olitpa sitten kasvissyöjä, vegaani tai liha-aterioiden ystävä. 
+            Tule ja nauti maukkaasta ateriasta viihtyisässä ympäristössä!
           </p>
+        </div>
+      </div>
+    </section>
+
+  
+    <section class="menu-section" id="menu">
+      <div class="menu-container">
+        <h2 class="menu-title">Ruokalistamme</h2>
+        <div class="menu-boxes">
+          
+         
+          <div class="menu-box">
+            <div class="menu-box-header">
+              <h3>Lounarin oma ruokalista</h3>
+              <span class="distance">10m</span>
+            </div>
+            
+            <div class="menu-content">
+              <div class="menu-items">
+                <div class="menu-side-image">
+                  <img src="img/9-6.jpg" alt="Traditional food" />
+                </div>
+                
+                <div class="menu-text-content">
+                  <div class="menu-item">
+                    <h4>KOTIRUOKA 1</h4>
+                    <p>Broileripyörykkät, paprikakastiketta ja keitettyjä perunoita</p>
+                  </div>
+                  
+                  <div class="menu-item">
+                    <h4>KOTIRUOKA 2</h4>
+                    <p>Tandoori porsasta ja täysivyväriisiä</p>
+                  </div>
+                  
+                  <div class="menu-item">
+                    <h4>VEGAANI</h4>
+                    <p>Vegaaninen tofu-kookos wokkia ja täysjyväriisiä</p>
+                  </div>
+                  
+                  <div class="menu-item">
+                    <h4>KASVISKEITTO</h4>
+                    <p>Kasvis-borssikeittoa, lisäkesalaatti kahdella napaksella</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <button class="menu-button">Avaa lounastiedot</button>
+          </div>
+
+         
+          <div class="menu-box">
+            <div class="menu-box-header">
+              <h3>Buffet Menu Aallon Huippu</h3>
+              <span class="distance">100m</span>
+            </div>
+            
+            <div class="menu-content">
+              <div class="menu-items">
+                <div class="menu-side-image">
+                  <img src="img/salati11.png" alt="Buffet food" />
+                </div>
+                
+                <div class="menu-text-content">
+                  <div class="menu-item">
+                    <h4>Tomaatti-kookoskeittoa</h4>
+                    <p class="allergens">A, G, ILM, L, M, Veg, VS</p>
+                  </div>
+                  
+                  <div class="menu-item">
+                    <h4>Härkistä tikka masala</h4>
+                    <p class="allergens">A, G, ILM, L, VS</p>
+                  </div>
+                  
+                  <div class="menu-item">
+                    <h4>Basmatiriisiä</h4>
+                    <p class="allergens">G, L, M, Veg</p>
+                  </div>
+                  
+                  <div class="menu-item">
+                    <h4>Paahdettua lohta</h4>
+                    <p class="allergens">A, G, L, M</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <button class="menu-button">Avaa lounastiedot</button>
+          </div>
+
+          <div class="menu-box">
+            <div class="menu-box-header">
+              <h3>Grilliruoka & Salaatit</h3>
+              <span class="distance">250m</span>
+            </div>
+            
+            <div class="menu-content">
+              <div class="menu-items">
+                <div class="menu-side-image">
+                  <img src="img/OIP.jpg" alt="Grill and salads" />
+                </div>
+                
+                <div class="menu-text-content">
+                  <div class="menu-item">
+                    <h4>GRILLI BURGERI</h4>
+                    <p>Juusto/kana/kasvis/halloumi burgeri ja ranskalaiset</p>
+                  </div>
+                  
+                  <div class="menu-item">
+                    <h4>BBQ RIBS</h4>
+                    <p>Marinoitu sianlihaa BBQ-kastikkeessa ja perunoita</p>
+                  </div>
+                  
+                  <div class="menu-item">
+                    <h4>CAESAR SALAATTI</h4>
+                    <p>Täyteläinen Caesar-salaatti, jossa on rapeaa romaine-salaattia, parmesaania, krutonkeja ja Caesar-kastiketta.</p>
+                  </div>
+                  
+                  <div class="menu-item">
+                    <h4>VEGE WRAP</h4>
+                    <p>Tuore vihannestortilla, hummus ja kasvikset</p>
+                  </div>
+                  
+                  <div class="menu-item">
+                    <h4>GRILLILIHA</h4>
+                    <p>Marinoidut lihapalat ja kauden vihanneksia</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <button class="menu-button">Avaa lounastiedot</button>
+          </div>
+
+          
+          <div class="menu-box">
+            <div class="menu-box-header">
+              <h3>Kahvila & Jälkiruoat</h3>
+              <span class="distance">150m</span>
+            </div>
+            
+            <div class="menu-content">
+              <div class="menu-items">
+                <div class="menu-side-image">
+                  <img src="img/OIP.jpg" alt="Dessert and coffee" />
+                </div>
+                
+                <div class="menu-text-content">
+                  <div class="menu-item">
+                    <h4>TIRAMISU</h4>
+                    <p class="allergens">Klassinen italialainen jälkiruoka</p>
+                  </div>
+                  
+                  <div class="menu-item">
+                    <h4>MANGO SMOOTHIE</h4>
+                    <p class="allergens">Tuoreita mangoja ja jogurttia</p>
+                  </div>
+                  
+                  <div class="menu-item">
+                    <h4>SUKLAA MOUSSE</h4>
+                    <p class="allergens">Tumma suklaa ja vaahtoa</p>
+                  </div>
+                  
+                  <div class="menu-item">
+                    <h4>KAHVI & LEIVONNAISET</h4>
+                    <p class="allergens">Tuore kahvi ja päivän leivonnaiset</p>
+                  </div>
+                  
+                  <div class="menu-item">
+                    <h4>HEDELMÄSALAATTI</h4>
+                    <p class="allergens">Kauden tuoreita hedelmiä</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <button class="menu-button">Avaa lounastiedot</button>
+          </div>
+
         </div>
       </div>
     </section>
