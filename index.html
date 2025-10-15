@@ -1,262 +1,283 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TK</title>
-    <!-- styles link -->
+    <meta name="description" content="Löydä lähimmän opiskelijaravintolan ruokalista Suomessa">
+    <meta name="keywords" content="opiskelijaravintolat, ruokalista, Suomi, Unicafe, Sodexo">
+    <title>ruokalista-appi</title>
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://unpkg.com">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="./styles.css">
-
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <!-- Leaflet CSS for maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
+          crossorigin=""/>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#2e7d56">
 </head>
 <body>
-  <!-- Header start -->
-  <header>
-    <div id="navbar">
-      <img src="./img/logo.png" alt="Food Lover Lo go">
-      <nav>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#menu">Menu</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-    <section class="main-message-section">
-      <p class="main-message-title">Tänne lisää sisältöä seuraavaksi</p>
-      <button id="showdialog">Show the dialog</button>
-      <div class="main-img-wrapper">
-        <img src="img/9-6.jpg" alt="kuva" style="width:180px;max-width:90%;margin:18px auto 0 auto;display:block;border-radius:14px;box-shadow:0 2px 12px rgba(56,71,71,0.08);background:#fff;">
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="skip-link">Siirry pääsisältöön</a>
+
+  <!-- Header -->
+  <header class="header" role="banner">
+    <nav class="navbar container" role="navigation" aria-label="Päänavigaatio">
+      <a href="#home" class="navbar-brand">
+        <img src="./img/logo.png" alt="Opiskelijaravintolat Logo" class="brand-logo">
+        <span class="brand-text">TK</span>
+      </a>
+      
+      <ul class="nav-menu" role="menubar">
+        <li role="none">
+          <a href="#home" class="nav-link" role="menuitem" aria-label="Siirry etusivulle">Etusivu</a>
+        </li>
+        <li role="none">
+          <a href="#restaurants" class="nav-link" role="menuitem" aria-label="Selaa ravintoloita">Ravintolat</a>
+        </li>
+        <li role="none">
+          <a href="#map" class="nav-link" role="menuitem" aria-label="Näytä ravintolat kartalla">Kartta</a>
+        </li>
+        <li role="none">
+          <a href="#profile" class="nav-link" role="menuitem" aria-label="Hallinnoi profiilia">Profiili</a>
+        </li>
+      </ul>
+      
+      <div class="navbar-controls">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Vaihda teemaa" title="Vaihda tumma/vaalea teema">
+          <span class="theme-icon">🌙</span>
+        </button>
+        
+        <div class="flex gap-2">
+          <button id="login-btn" class="btn btn-outline btn-sm" aria-label="Kirjaudu sisään">
+            Kirjaudu
+          </button>
+          <button id="register-btn" class="btn btn-primary btn-sm" aria-label="Rekisteröidy">
+            Rekisteröidy
+          </button>
+          <button id="logout-btn" class="btn btn-outline btn-sm" style="display: none;" aria-label="Kirjaudu ulos">
+            Kirjaudu ulos
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <h1 id="hero-title" class="hero-title">
+          Löydä parhaita opiskelijaruokailu paikkoja Suomessa! 🍽️
+        </h1>
+        <p class="hero-subtitle">
+          Selaa yli 100+ ravintolan ruokalistoja, löydä lähimmät vaihtoehdot ja nauti herkullisista aterioista opiskelijahinnoin.
+        </p>
       </div>
     </section>
-  </header>
- 
-  <main>
 
-
-
-      <dialog id="register-dialog">
-        <form id="register-form" action="">
-          <div class="dialog-title-main">Rekisteröidy tiedoillasi</div>
-          <img src="img/your-illustration.png" class="dialog-illustration" alt="Register Illustration">
-          <fieldset class="myForm">
-            <label for="yourName">Sukunimi, minin 4 kirjainta:</label>
-            <input type="text" id="yourName" name="yourName" pattern="[A-Za-z]{4,30}" required placeholder="Sukunimi" />
-            <label for="yourEmail">Email osoite (esim. Tamam@example.com):</label>
-            <input type="email" id="yourEmail" name="yourEmail" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required placeholder="Tamam@example.com" />
-            <label for="yourPassword">Salasana (minin 8 merkkiä):</label>
-            <input type="password" id="yourPassword" name="yourPassword" pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}" required placeholder="Salasana" />
-            <div class="dialog-buttons">
-              <input type="submit" value="Submit" />
-              <button id="close-dialog" type="button">Close</button>
+    <!-- Search & View Controls -->
+    <section class="search-section" aria-labelledby="search-title">
+      <div class="container">
+        <h2 id="search-title" class="sr-only">Haku ja suodattimet</h2>
+        
+        <div class="search-container">
+          <form class="search-form" role="search" aria-label="Etsi ravintoloita">
+            <div class="search-input-wrapper">
+              <input 
+                type="search" 
+                id="search-restaurants" 
+                class="search-input"
+                placeholder="Etsi ravintolan nimellä tai sijainnilla..."
+                aria-label="Etsi ravintoloita"
+              >
+              <span class="search-icon" aria-hidden="true">🔍</span>
             </div>
-          </fieldset>
-        </form>
-      </dialog>
-
-
-    <section class="about-section">
-      <div class="about-bg"></div>
-      <img src="img/pizza.png" alt="pizza" id="pizza-img">
-      <div class="about-content">
-        <img src="img/your_image.jpeg" alt="about" class="about-img">
-        <div class="about-text">
-          <div class="about-title"> MEISTÄ</div>
-          <h2 id="about-heading">Valikoimamme</h2>
-          <p id="about-desc">
-            Tarjoamme laajan valikoiman herkullisia ruokia, jotka on valmistettu tuoreista ja laadukkaista raaka-aineista. 
-            Meillä on jotain jokaiselle, olitpa sitten kasvissyöjä, vegaani tai liha-aterioiden ystävä. 
-            Tule ja nauti maukkaasta ateriasta viihtyisässä ympäristössä!
-          </p>
+            <button type="button" id="location-btn" class="btn btn-secondary">
+              📍 Käytä sijaintia
+            </button>
+          </form>
+          
+          <div class="view-controls" role="group" aria-label="Näkymän valinta">
+            <button id="daily-view-btn" class="view-btn active" aria-pressed="true">
+              <span aria-hidden="true">📅</span> Päivän ruokalista
+            </button>
+            <button id="weekly-view-btn" class="view-btn" aria-pressed="false">
+              <span aria-hidden="true">📊</span> Viikon ruokalista
+            </button>
+          </div>
         </div>
       </div>
     </section>
 
-  
-    <section class="menu-section" id="menu">
-      <div class="menu-container">
-        <h2 class="menu-title">Ruokalistamme</h2>
-        <div class="menu-boxes">
+    <!-- Loading States -->
+    <div id="loading-restaurants" class="loading" style="display: none;" aria-live="polite">
+      <div class="loading-spinner" aria-hidden="true"></div>
+      <span>Ladataan ravintoloita...</span>
+    </div>
+
+    <!-- Restaurants Grid -->
+    <section class="restaurants-section" id="restaurants" aria-labelledby="restaurants-title">
+      <div class="container">
+        <h2 id="restaurants-title" class="section-title">Opiskelijaravintolat</h2>
+        
+        <div id="restaurants-grid" class="restaurants-grid" role="region" aria-label="Ravintolalista">
+          <!-- Restaurant cards will be populated by JavaScript -->
+        </div>
+        
+        <div id="no-results" class="loading" style="display: none;">
+          <span>Ei ravintoloita löytynyt hakuehdoilla.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section" id="map" aria-labelledby="map-title">
+      <div class="container">
+        <h2 id="map-title" class="section-title">Ravintolat kartalla</h2>
+        
+        <div class="map-container">
+          <div id="restaurant-map" class="map-view" role="application" aria-label="Interaktiivinen kartta ravintoloista">
+            <div class="loading">
+              <div class="loading-spinner" aria-hidden="true"></div>
+              <span>Ladataan karttaa...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Modal -->
+    <dialog id="menu-modal" class="modal" aria-labelledby="menu-modal-title">
+      <div class="modal-content">
+        <header class="modal-header">
+          <h2 id="menu-modal-title" class="modal-title">Ravintolan ruokalista</h2>
+          <button id="close-menu-modal" class="btn btn-ghost btn-sm" aria-label="Sulje ruokalista">
+            ✕
+          </button>
+        </header>
+        
+        <div id="menu-content" class="modal-body">
+          <!-- Menu content will be populated by JavaScript -->
+        </div>
+      </div>
+    </dialog>
+
+    <!-- Profile Section -->
+    <section class="profile-section" id="profile" aria-labelledby="profile-title" style="display: none;">
+      <div class="container">
+        <h2 id="profile-title" class="section-title">Oma profiili</h2>
+        
+        <div class="card">
+          <div class="card-header">
+            <div class="flex items-center gap-4">
+              <div id="profile-image-container" class="profile-avatar">
+                <img id="profile-image-display" src="" alt="Profiilikuva" style="display: none;">
+                <span id="profile-placeholder" aria-hidden="true">👤</span>
+              </div>
+              <div>
+                <h3 id="profile-name" class="card-title">Käyttäjä</h3>
+                <p id="profile-email" class="card-content"></p>
+              </div>
+            </div>
+          </div>
           
-         
-          <div class="menu-box">
-            <div class="menu-box-header">
-              <h3>Lounarin oma ruokalista</h3>
-              <span class="distance">10m</span>
-            </div>
-            
-            <div class="menu-content">
-              <div class="menu-items">
-                <div class="menu-side-image">
-                  <img src="img/9-6.jpg" alt="Traditional food" />
-                </div>
-                
-                <div class="menu-text-content">
-                  <div class="menu-item">
-                    <h4>KOTIRUOKA 1</h4>
-                    <p>Broileripyörykkät, paprikakastiketta ja keitettyjä perunoita</p>
-                  </div>
-                  
-                  <div class="menu-item">
-                    <h4>KOTIRUOKA 2</h4>
-                    <p>Tandoori porsasta ja täysivyväriisiä</p>
-                  </div>
-                  
-                  <div class="menu-item">
-                    <h4>VEGAANI</h4>
-                    <p>Vegaaninen tofu-kookos wokkia ja täysjyväriisiä</p>
-                  </div>
-                  
-                  <div class="menu-item">
-                    <h4>KASVISKEITTO</h4>
-                    <p>Kasvis-borssikeittoa, lisäkesalaatti kahdella napaksella</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <button class="menu-button">Avaa lounastiedot</button>
+          <div class="card-actions">
+            <button id="edit-profile-btn" class="btn btn-primary">Muokkaa profiilia</button>
+            <button id="change-image-btn" class="btn btn-secondary">Vaihda profiilikuva</button>
           </div>
-
-         
-          <div class="menu-box">
-            <div class="menu-box-header">
-              <h3>Buffet Menu Aallon Huippu</h3>
-              <span class="distance">100m</span>
-            </div>
-            
-            <div class="menu-content">
-              <div class="menu-items">
-                <div class="menu-side-image">
-                  <img src="img/salati11.png" alt="Buffet food" />
-                </div>
-                
-                <div class="menu-text-content">
-                  <div class="menu-item">
-                    <h4>Tomaatti-kookoskeittoa</h4>
-                    <p class="allergens">A, G, ILM, L, M, Veg, VS</p>
-                  </div>
-                  
-                  <div class="menu-item">
-                    <h4>Härkistä tikka masala</h4>
-                    <p class="allergens">A, G, ILM, L, VS</p>
-                  </div>
-                  
-                  <div class="menu-item">
-                    <h4>Basmatiriisiä</h4>
-                    <p class="allergens">G, L, M, Veg</p>
-                  </div>
-                  
-                  <div class="menu-item">
-                    <h4>Paahdettua lohta</h4>
-                    <p class="allergens">A, G, L, M</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <button class="menu-button">Avaa lounastiedot</button>
-          </div>
-
-          <div class="menu-box">
-            <div class="menu-box-header">
-              <h3>Grilliruoka & Salaatit</h3>
-              <span class="distance">250m</span>
-            </div>
-            
-            <div class="menu-content">
-              <div class="menu-items">
-                <div class="menu-side-image">
-                  <img src="img/OIP.jpg" alt="Grill and salads" />
-                </div>
-                
-                <div class="menu-text-content">
-                  <div class="menu-item">
-                    <h4>GRILLI BURGERI</h4>
-                    <p>Juusto/kana/kasvis/halloumi burgeri ja ranskalaiset</p>
-                  </div>
-                  
-                  <div class="menu-item">
-                    <h4>BBQ RIBS</h4>
-                    <p>Marinoitu sianlihaa BBQ-kastikkeessa ja perunoita</p>
-                  </div>
-                  
-                  <div class="menu-item">
-                    <h4>CAESAR SALAATTI</h4>
-                    <p>Täyteläinen Caesar-salaatti, jossa on rapeaa romaine-salaattia, parmesaania, krutonkeja ja Caesar-kastiketta.</p>
-                  </div>
-                  
-                  <div class="menu-item">
-                    <h4>VEGE WRAP</h4>
-                    <p>Tuore vihannestortilla, hummus ja kasvikset</p>
-                  </div>
-                  
-                  <div class="menu-item">
-                    <h4>GRILLILIHA</h4>
-                    <p>Marinoidut lihapalat ja kauden vihanneksia</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <button class="menu-button">Avaa lounastiedot</button>
-          </div>
-
-          
-          <div class="menu-box">
-            <div class="menu-box-header">
-              <h3>Kahvila & Jälkiruoat</h3>
-              <span class="distance">150m</span>
-            </div>
-            
-            <div class="menu-content">
-              <div class="menu-items">
-                <div class="menu-side-image">
-                  <img src="img/OIP.jpg" alt="Dessert and coffee" />
-                </div>
-                
-                <div class="menu-text-content">
-                  <div class="menu-item">
-                    <h4>TIRAMISU</h4>
-                    <p class="allergens">Klassinen italialainen jälkiruoka</p>
-                  </div>
-                  
-                  <div class="menu-item">
-                    <h4>MANGO SMOOTHIE</h4>
-                    <p class="allergens">Tuoreita mangoja ja jogurttia</p>
-                  </div>
-                  
-                  <div class="menu-item">
-                    <h4>SUKLAA MOUSSE</h4>
-                    <p class="allergens">Tumma suklaa ja vaahtoa</p>
-                  </div>
-                  
-                  <div class="menu-item">
-                    <h4>KAHVI & LEIVONNAISET</h4>
-                    <p class="allergens">Tuore kahvi ja päivän leivonnaiset</p>
-                  </div>
-                  
-                  <div class="menu-item">
-                    <h4>HEDELMÄSALAATTI</h4>
-                    <p class="allergens">Kauden tuoreita hedelmiä</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <button class="menu-button">Avaa lounastiedot</button>
-          </div>
-
         </div>
       </div>
     </section>
   </main>
 
-  <footer id="footer">
-    <p>TK &copy; 2025 <b><a href="#" target="_blank">Tamam K</a></b></p>
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <p>
+        Opiskelijaravintolat &copy; 2024 
+        <a href="#" target="_blank" rel="noopener noreferrer">Finnish Student Restaurants</a>
+      </p>
+    </div>
   </footer>
-  <script src="javascript.js"></script>
+
+  <!-- Auth Modals -->
+  <dialog id="login-modal" class="modal" aria-labelledby="login-title">
+    <div class="modal-content">
+      <header class="modal-header">
+        <h2 id="login-title" class="modal-title">Kirjaudu sisään</h2>
+        <button id="close-login-modal" class="btn btn-ghost btn-sm" aria-label="Sulje kirjautuminen">
+          ✕
+        </button>
+      </header>
+      
+      <form id="login-form" class="modal-body">
+        <div class="form-group">
+          <label for="login-username">Käyttäjätunnus</label>
+          <input type="text" id="login-username" name="username" required class="form-input">
+        </div>
+        
+        <div class="form-group">
+          <label for="login-password">Salasana</label>
+          <input type="password" id="login-password" name="password" required class="form-input">
+        </div>
+        
+        <div class="modal-actions">
+          <button type="submit" class="btn btn-primary">Kirjaudu sisään</button>
+          <button type="button" id="cancel-login" class="btn btn-secondary">Peruuta</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <dialog id="register-modal" class="modal" aria-labelledby="register-title">
+    <div class="modal-content">
+      <header class="modal-header">
+        <h2 id="register-title" class="modal-title">Rekisteröidy</h2>
+        <button id="close-register-modal" class="btn btn-ghost btn-sm" aria-label="Sulje rekisteröityminen">
+          ✕
+        </button>
+      </header>
+      
+      <form id="register-form" class="modal-body">
+        <div class="form-group">
+          <label for="register-username">Käyttäjätunnus</label>
+          <input type="text" id="register-username" name="username" required class="form-input">
+        </div>
+        
+        <div class="form-group">
+          <label for="register-email">Sähköposti</label>
+          <input type="email" id="register-email" name="email" required class="form-input">
+        </div>
+        
+        <div class="form-group">
+          <label for="register-password">Salasana</label>
+          <input type="password" id="register-password" name="password" required class="form-input">
+        </div>
+        
+        <div class="modal-actions">
+          <button type="submit" class="btn btn-primary">Rekisteröidy</button>
+          <button type="button" id="cancel-register" class="btn btn-secondary">Peruuta</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+  
+  <!-- Leaflet JS for maps -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" 
+          crossorigin=""></script>
+  
+  <!-- TypeScript compiled to JavaScript -->
+  <script type="module" src="dist/main.js?v=1729026000"></script>
 </body>
 </html>

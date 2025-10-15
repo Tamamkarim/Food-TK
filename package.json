@@ -1,0 +1,27 @@
+{
+  "name": "food-tk",
+  "version": "1.0.0",
+  "description": " Opiskelijaravintolat",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build && http-server . -p 3001",
+    "start:alt": "npm run build && http-server . -p 3000",
+    "dev": "tsc --watch",
+    "serve": "http-server . -p 8000"
+  },
+  "keywords": [
+    "typescript",
+    "restaurant",
+    "student",
+    "finland"
+  ],
+  "author": "Tamam Karim",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}
